@@ -21,7 +21,7 @@ const ReposPagination = ({ page, setPage, lastPage, user }: ReposPaginationProps
       <div className="flex items-center justify-center gap-5 mx-auto mt-10">
         <Link to={`/${user}/repos/${page - 1}`}>
           <button
-            className="btn-pagination"
+            className="flex items-center p-1 rounded text-white bg-blue-500 hover:bg-blue-600 focus:outline-none disabled:opacity-20 disabled:cursor-not-allowed"
             onClick={decrementPage}
             disabled={page === 1}
           >
@@ -33,7 +33,7 @@ const ReposPagination = ({ page, setPage, lastPage, user }: ReposPaginationProps
 
         <Link to={`/${user}/repos/${page + 1}`}>
           <button
-            className="btn-pagination"
+            className="flex items-center p-1 rounded text-white bg-blue-500 hover:bg-blue-600 focus:outline-none disabled:opacity-20 disabled:cursor-not-allowed"
             onClick={incrementPage}
             disabled={page === lastPage}
           >

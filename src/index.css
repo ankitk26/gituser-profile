@@ -3,22 +3,3 @@
 @theme {
   --font-sans: "Source Sans Pro", sans-serif;
 }
-
-@utility btn-pagination {
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  color: white;
-  background-color: var(--color-blue-500);
-  &:hover {
-    background-color: var(--color-blue-600);
-  }
-  &:focus {
-    outline: none;
-  }
-  &:disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-  }
-}
