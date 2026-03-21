@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUser } from "../context/user-context";
+import { useUser } from "@/context/user-context";
 
 export default function UserInputForm() {
   const [input, setInput] = useState("");

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Buildings, MapPin, EnvelopeSimple, UserFocus, List } from "phosphor-react";
-import { useUser } from "../context/user-context";
+import { useUser } from "@/context/user-context";
 
 export default function BasicInfo() {
   const { user } = useUser();

@@ -1,4 +1,4 @@
-import type { GithubRepo } from "../context/user-context";
+import type { GithubRepo } from "@/context/user-context";
 import useCopyClipboard from "react-use-clipboard";
 import { GitBranch } from "phosphor-react";
 

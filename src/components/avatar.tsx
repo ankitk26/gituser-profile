@@ -1,4 +1,4 @@
-import { useUser } from "../context/user-context";
+import { useUser } from "@/context/user-context";
 import { Users } from "phosphor-react";
 
 export default function Avatar() {

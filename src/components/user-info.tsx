@@ -1,6 +1,6 @@
-import { useUser } from "../context/user-context";
-import ErrorMessage from "../layouts/error-message";
-import Loader from "../layouts/loader";
+import { useUser } from "@/context/user-context";
+import ErrorMessage from "@/layouts/error-message";
+import Loader from "@/layouts/loader";
 import Avatar from "./avatar";
 import BasicInfo from "./basic-info";
 

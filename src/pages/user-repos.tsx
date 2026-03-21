@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { GithubRepo } from "../context/user-context";
-import { UserContext } from "../context/user-context";
-import Repo from "../components/repo";
-import ReposPagination from "../components/repos-pagination";
-import Loader from "../layouts/loader";
+import type { GithubRepo } from "@/context/user-context";
+import { UserContext } from "@/context/user-context";
+import Repo from "@/components/repo";
+import ReposPagination from "@/components/repos-pagination";
+import Loader from "@/layouts/loader";
 
 interface LinkHeader {
   url: string;
