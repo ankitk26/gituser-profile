@@ -40,7 +40,7 @@ export default function BasicInfo({ user }: Props) {
 				{user.blog && (
 					<a
 						href={
-							user.blog.startsWith("http")
+							user.blog.toLowerCase().startsWith("http")
 								? user.blog
 								: `https://${user.blog}`
 						}

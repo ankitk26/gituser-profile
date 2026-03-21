@@ -39,6 +39,7 @@ export async function fetchRepos(
 		fetch(`${BASE_URL}/${username}`),
 	]);
 	if (!reposRes.ok) throw new Error("Failed to fetch repos");
+	if (!userRes.ok) throw new Error("Failed to fetch user");
 	const repos: GithubRepo[] = await reposRes.json();
 	const user: GithubUser = await userRes.json();
 	const lastPage = Math.ceil(user.public_repos / 30) || null;

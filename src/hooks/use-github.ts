@@ -9,9 +9,10 @@ export function useUserQuery(username: string | null) {
 	});
 }
 
-export function useReposQuery(username: string, page: number) {
+export function useReposQuery(username: string | null, page: number) {
 	return useQuery({
 		queryKey: ["repos", username, page],
-		queryFn: () => fetchRepos(username, page),
+		queryFn: () => fetchRepos(username!, page),
+		enabled: !!username,
 	});
 }

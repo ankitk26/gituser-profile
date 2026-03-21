@@ -41,7 +41,7 @@ export default function Home() {
 		error: userError,
 	} = useUserQuery(username);
 	const { data: reposData, isLoading: reposLoading } = useReposQuery(
-		username ?? "",
+		username,
 		page,
 	);
 
