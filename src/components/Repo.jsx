@@ -1,12 +1,10 @@
 import useCopyClipboard from "react-use-clipboard";
-import { message } from "react-message-popup";
 
 const Repo = ({ repo }) => {
   const [, setCopied] = useCopyClipboard(repo.clone_url);
 
   const copyUrl = () => {
     setCopied();
-    message.success("Copied to clipboard", 1500);
   };
 
   return (

@@ -1,11 +1,25 @@
 import axios from "axios";
-import parse from "parse-link-header"; // Converts headers to JSON format
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Repo from "../components/Repo";
 import ReposPagination from "../components/ReposPagination";
 import { UserContext } from "../context/UserContext";
 import Loader from "../layouts/Loader";
+
+function parseLinkHeader(header) {
+  if (!header) return null;
+  const result = {};
+  for (const part of header.split(",")) {
+    const match = part.match(/<([^>]+)>;\s*rel="([^"]+)"/);
+    if (match) {
+      const url = match[1];
+      const rel = match[2];
+      const page = new URL(url).searchParams.get("page");
+      result[rel] = { url, rel, page };
+    }
+  }
+  return Object.keys(result).length ? result : null;
+}
 
 const UserRepos = () => {
   const params = useParams();
@@ -21,11 +35,8 @@ const UserRepos = () => {
 
   const getLastPage = async () => {
     const res = await axios.get(REPOS_URL);
-    setLastPage(
-      parse(res.headers.link) && parse(res.headers.link).last
-        ? parseInt(parse(res.headers.link).last.page)
-        : null
-    );
+    const parsed = parseLinkHeader(res.headers.link);
+    setLastPage(parsed?.last ? parseInt(parsed.last.page) : null);
   };
 
   useEffect(() => {

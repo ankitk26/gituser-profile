@@ -1,9 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer components {
-  .btn-pagination {
-    @apply flex items-center p-1 rounded text-white bg-blue-500 hover:bg-blue-600 focus:outline-none disabled:opacity-20 disabled:cursor-not-allowed;
+@theme {
+  --font-sans: "Source Sans Pro", sans-serif;
+}
+
+@utility btn-pagination {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: var(--color-blue-500);
+  &:hover {
+    background-color: var(--color-blue-600);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
   }
 }
