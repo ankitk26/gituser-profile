@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Repo from "../components/Repo";
-import ReposPagination from "../components/ReposPagination";
-import { UserContext } from "../context/UserContext";
-import Loader from "../layouts/Loader";
+import Repo from "../components/repo";
+import ReposPagination from "../components/repos-pagination";
+import { UserContext } from "../context/user-context";
+import Loader from "../layouts/loader";
 
 function parseLinkHeader(header) {
   if (!header) return null;

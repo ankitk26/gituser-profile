@@ -1,8 +1,8 @@
-import { useUser } from "../context/UserContext";
-import ErrorMessage from "../layouts/ErrorMessage";
-import Loader from "../layouts/Loader";
-import Avatar from "./Avatar";
-import BasicInfo from "./BasicInfo";
+import { useUser } from "../context/user-context";
+import ErrorMessage from "../layouts/error-message";
+import Loader from "../layouts/loader";
+import Avatar from "./avatar";
+import BasicInfo from "./basic-info";
 
 const UserInfo = () => {
   const { error, loading, user } = useUser();
