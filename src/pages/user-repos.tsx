@@ -1,20 +1,27 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import type { GithubRepo } from "../context/user-context";
+import { UserContext } from "../context/user-context";
 import Repo from "../components/repo";
 import ReposPagination from "../components/repos-pagination";
-import { UserContext } from "../context/user-context";
 import Loader from "../layouts/loader";
 
-function parseLinkHeader(header) {
+interface LinkHeader {
+  url: string;
+  rel: string;
+  page: string;
+}
+
+function parseLinkHeader(header: string | undefined): Record<string, LinkHeader> | null {
   if (!header) return null;
-  const result = {};
+  const result: Record<string, LinkHeader> = {};
   for (const part of header.split(",")) {
     const match = part.match(/<([^>]+)>;\s*rel="([^"]+)"/);
     if (match) {
       const url = match[1];
       const rel = match[2];
-      const page = new URL(url).searchParams.get("page");
+      const page = new URL(url).searchParams.get("page") ?? "";
       result[rel] = { url, rel, page };
     }
   }
@@ -23,19 +30,21 @@ function parseLinkHeader(header) {
 
 const UserRepos = () => {
   const params = useParams();
-  const pageNumber = parseInt(params.pageNumber);
-  const user = params.username;
+  const pageNumber = parseInt(params.pageNumber!);
+  const user = params.username!;
 
   const [page, setPage] = useState(pageNumber);
-  const [lastPage, setLastPage] = useState(null);
+  const [lastPage, setLastPage] = useState<number | null>(null);
 
-  const { loading, repos, fetchRepos } = useContext(UserContext);
+  const context = useContext(UserContext);
+  if (!context) throw new Error("UserRepos must be used within UserProvider");
+  const { loading, repos, fetchRepos } = context;
 
   const REPOS_URL = `https://api.github.com/users/${user}/repos?page=${page}`;
 
   const getLastPage = async () => {
-    const res = await axios.get(REPOS_URL);
-    const parsed = parseLinkHeader(res.headers.link);
+    const res = await axios.get<GithubRepo[]>(REPOS_URL);
+    const parsed = parseLinkHeader(res.headers.link as string | undefined);
     setLastPage(parsed?.last ? parseInt(parsed.last.page) : null);
   };
 
@@ -47,8 +56,6 @@ const UserRepos = () => {
     }
 
     setPage(pageNumber);
-
-    // eslint-disable-next-line
   }, [pageNumber]);
 
   if (loading) {

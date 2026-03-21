@@ -19,14 +19,11 @@ const UserInfo = () => {
     return null;
   }
 
-  // Show any error
   return (
     <div className="w-screen p-5 mx-auto my-10 bg-gray-200 shadow-2xl md:w-10/12">
       <div className="md:grid md:grid-cols-2 md:gap-10">
-        {/* Avatar Section of user */}
         <Avatar />
         <hr className="h-px bg-gray-500 md:hidden" />
-        {/* Other Details of user */}
         <BasicInfo />
       </div>
     </div>

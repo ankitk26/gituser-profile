@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useUser } from "../context/user-context";
 
-const UserForm = () => {
+const UserInputForm = () => {
   const [input, setInput] = useState("");
   const { fetchUser, setError, clearAll } = useUser();
 
-  const handleInputChange = (e) => setInput(e.target.value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInput(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input) {
       fetchUser(input);
@@ -55,4 +56,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default UserInputForm;

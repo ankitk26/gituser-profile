@@ -1,3 +1,4 @@
+import type { GithubUser, GithubRepo } from "./user-context";
 import {
   USER_FETCH_ERROR,
   USER_REPOS_SUCCESS,
@@ -8,7 +9,23 @@ import {
   CLEAR_ALL,
 } from "./actions";
 
-const reducer = (state, action) => {
+export interface State {
+  user: GithubUser | null;
+  error: string | null;
+  loading: boolean;
+  repos: GithubRepo[] | null;
+}
+
+export type Action =
+  | { type: typeof SET_ERROR; payload: string }
+  | { type: typeof CLEAR_ERROR }
+  | { type: typeof START_FETCHING }
+  | { type: typeof USER_FETCH_SUCCESS; payload: { user: GithubUser } }
+  | { type: typeof USER_FETCH_ERROR; payload: { error: string } }
+  | { type: typeof USER_REPOS_SUCCESS; payload: GithubRepo[] }
+  | { type: typeof CLEAR_ALL };
+
+const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case SET_ERROR:
       return { ...state, error: action.payload, user: null };
@@ -20,15 +37,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload.user,
-        block: action.payload.block,
-        input: action.payload.input,
         loading: false,
         error: null,
       };
     case USER_FETCH_ERROR:
       return {
         ...state,
-        block: action.payload.block,
         error: action.payload.error,
         loading: false,
       };

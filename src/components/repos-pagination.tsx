@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
-const ReposPagination = ({ page, setPage, lastPage, user }) => {
+interface ReposPaginationProps {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  lastPage: number;
+  user: string;
+}
+
+const ReposPagination = ({ page, setPage, lastPage, user }: ReposPaginationProps) => {
   const incrementPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
@@ -28,7 +35,7 @@ const ReposPagination = ({ page, setPage, lastPage, user }) => {
           <button
             className="btn-pagination"
             onClick={incrementPage}
-            disabled={page === lastPage} // Disable button at last page
+            disabled={page === lastPage}
           >
             <i className="material-icons">keyboard_arrow_right</i>
           </button>

@@ -2,6 +2,7 @@ import { useUser } from "../context/user-context";
 
 const Avatar = () => {
   const { user } = useUser();
+  if (!user) return null;
 
   return (
     <div className="py-5 md:px-10">
