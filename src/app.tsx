@@ -7,15 +7,18 @@ import UserRepos from "@/pages/user-repos";
 const queryClient = new QueryClient();
 
 export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:username/repos/:pageNumber" element={<UserRepos />} />
-        </Routes>
-      </Router>
-    </QueryClientProvider>
-  );
+	return (
+		<QueryClientProvider client={queryClient}>
+			<Router>
+				<Header />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route
+						path="/:username/repos/:pageNumber"
+						element={<UserRepos />}
+					/>
+				</Routes>
+			</Router>
+		</QueryClientProvider>
+	);
 }
