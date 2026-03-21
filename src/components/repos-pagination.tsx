@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CaretLeft, CaretRight } from "phosphor-react";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 interface Props {
   page: number;
@@ -26,7 +26,7 @@ export default function ReposPagination({ page, setPage, lastPage, user }: Props
             onClick={decrementPage}
             disabled={page === 1}
           >
-            <CaretLeft size={24} />
+            <CaretLeftIcon size={24} />
           </button>
         </Link>
 
@@ -38,7 +38,7 @@ export default function ReposPagination({ page, setPage, lastPage, user }: Props
             onClick={incrementPage}
             disabled={page === lastPage}
           >
-            <CaretRight size={24} />
+            <CaretRightIcon size={24} />
           </button>
         </Link>
       </div>

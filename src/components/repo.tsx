@@ -1,22 +1,22 @@
 import type { GithubRepo } from "@/context/user-context";
-import useCopyClipboard from "react-use-clipboard";
-import { GitBranch } from "phosphor-react";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { GitBranchIcon } from "@phosphor-icons/react";
 
 interface Props {
   repo: GithubRepo;
 }
 
 export default function Repo({ repo }: Props) {
-  const [, setCopied] = useCopyClipboard(repo.clone_url);
+  const [copy] = useCopyToClipboard();
 
   const copyUrl = () => {
-    setCopied();
+    copy(repo.clone_url);
   };
 
   return (
     <div className="w-full p-5 my-6 bg-gray-200 text-md" key={repo.id}>
       <div className="flex items-center max-w-full gap-12 mt-2">
-        <GitBranch size={80} className="hidden text-gray-800 md:block" />
+        <GitBranchIcon size={80} className="hidden text-gray-800 md:block" />
         <div className="flex flex-col w-full max-w-full">
           <h1 className="text-2xl font-semibold text-blue-500 break-words hover:underline">
             <a

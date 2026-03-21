@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Buildings, MapPin, EnvelopeSimple, UserFocus, List } from "phosphor-react";
+import { BuildingsIcon, MapPinIcon, EnvelopeSimpleIcon, UserFocusIcon, ListIcon } from "@phosphor-icons/react";
 import { useUser } from "@/context/user-context";
 
 export default function BasicInfo() {
@@ -16,21 +16,21 @@ export default function BasicInfo() {
 
       {user.company && (
         <div className="flex items-center gap-3 mt-10">
-          <Buildings size={24} className="text-gray-700" />
+          <BuildingsIcon size={24} className="text-gray-700" />
           <span className="md:text-sm">{user.company}</span>
         </div>
       )}
 
       {user.location && (
         <div className="flex items-center gap-3 mt-4">
-          <MapPin size={24} className="text-gray-700" />
+          <MapPinIcon size={24} className="text-gray-700" />
           <span className="md:text-sm">{user.location}</span>
         </div>
       )}
 
       {user.blog && (
         <div className="flex items-center gap-3 mt-4">
-          <EnvelopeSimple size={24} className="text-gray-700" />
+          <EnvelopeSimpleIcon size={24} className="text-gray-700" />
           <a
             href={`//${user.blog}`}
             className="font-bold text-blue-600 md:text-sm hover:underline"
@@ -43,7 +43,7 @@ export default function BasicInfo() {
       )}
 
       <div className="flex items-center gap-3 mt-4">
-        <UserFocus size={24} className="text-gray-700" />
+        <UserFocusIcon size={24} className="text-gray-700" />
         <strong
           className={`md:text-sm ${
             user.hireable ? "text-green-600" : "text-red-600"
@@ -54,7 +54,7 @@ export default function BasicInfo() {
       </div>
 
       <div className="flex items-center gap-4 mt-4 text-base">
-        <List size={24} />
+        <ListIcon size={24} />
         <Link
           to={`/${user.login}/repos/1`}
           className="font-bold text-blue-600 hover:underline"

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GithubLogo } from "phosphor-react";
+import { GithubLogoIcon } from "@phosphor-icons/react";
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
         to="/"
         className="flex items-center justify-center gap-4 px-10 md:mt-0"
       >
-        <GithubLogo size={28} weight="fill" />
+        <GithubLogoIcon size={28} weight="fill" />
         <h1>Github User Finder</h1>
       </Link>
     </nav>

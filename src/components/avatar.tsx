@@ -1,5 +1,5 @@
 import { useUser } from "@/context/user-context";
-import { Users } from "phosphor-react";
+import { UsersIcon } from "@phosphor-icons/react";
 
 export default function Avatar() {
   const { user } = useUser();
@@ -19,7 +19,7 @@ export default function Avatar() {
         <div className="flex flex-col items-center gap-1">
           <strong className="text-blue-700 ">Following</strong>
           <div className="flex items-center">
-            <Users size={24} className="mr-2 text-gray-900" />
+            <UsersIcon size={24} className="mr-2 text-gray-900" />
             <span>{user.following}</span>
           </div>
         </div>
@@ -27,7 +27,7 @@ export default function Avatar() {
         <div className="flex flex-col items-center gap-1">
           <strong className="text-blue-700">Followers</strong>
           <div className="flex items-center">
-            <Users size={24} className="mr-2 text-gray-900" />
+            <UsersIcon size={24} className="mr-2 text-gray-900" />
             <span>{user.followers}</span>
           </div>
         </div>
