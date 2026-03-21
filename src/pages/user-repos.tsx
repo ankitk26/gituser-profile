@@ -28,7 +28,7 @@ function parseLinkHeader(header: string | undefined): Record<string, LinkHeader>
   return Object.keys(result).length ? result : null;
 }
 
-const UserRepos = () => {
+export default function UserRepos() {
   const params = useParams();
   const pageNumber = parseInt(params.pageNumber!);
   const user = params.username!;
@@ -99,6 +99,4 @@ const UserRepos = () => {
       </div>
     </div>
   );
-};
-
-export default UserRepos;
+}

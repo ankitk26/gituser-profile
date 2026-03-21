@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-interface ReposPaginationProps {
+interface Props {
   page: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
   lastPage: number;
   user: string;
 }
 
-const ReposPagination = ({ page, setPage, lastPage, user }: ReposPaginationProps) => {
+export default function ReposPagination({ page, setPage, lastPage, user }: Props) {
   const incrementPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
@@ -43,6 +43,4 @@ const ReposPagination = ({ page, setPage, lastPage, user }: ReposPaginationProps
       </div>
     </>
   );
-};
-
-export default ReposPagination;
+}

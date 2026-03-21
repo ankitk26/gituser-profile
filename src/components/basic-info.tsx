@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useUser } from "../context/user-context";
 
-const BasicInfo = () => {
+export default function BasicInfo() {
   const { user } = useUser();
   if (!user) return null;
 
@@ -63,6 +63,4 @@ const BasicInfo = () => {
       </div>
     </div>
   );
-};
-
-export default BasicInfo;
+}

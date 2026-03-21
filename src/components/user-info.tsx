@@ -4,7 +4,7 @@ import Loader from "../layouts/loader";
 import Avatar from "./avatar";
 import BasicInfo from "./basic-info";
 
-const UserInfo = () => {
+export default function UserInfo() {
   const { error, loading, user } = useUser();
 
   if (error) {
@@ -28,6 +28,4 @@ const UserInfo = () => {
       </div>
     </div>
   );
-};
-
-export default UserInfo;
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useUser } from "../context/user-context";
 
-const UserInputForm = () => {
+export default function UserInputForm() {
   const [input, setInput] = useState("");
   const { fetchUser, setError, clearAll } = useUser();
 
@@ -54,6 +54,4 @@ const UserInputForm = () => {
       </div>
     </form>
   );
-};
-
-export default UserInputForm;
+}

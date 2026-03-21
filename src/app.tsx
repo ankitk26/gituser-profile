@@ -4,7 +4,7 @@ import Header from "./layouts/header";
 import Home from "./pages/home";
 import UserRepos from "./pages/user-repos";
 
-const App = () => {
+export default function App() {
   return (
     <UserProvider>
       <Router>
@@ -16,6 +16,4 @@ const App = () => {
       </Router>
     </UserProvider>
   );
-};
-
-export default App;
+}

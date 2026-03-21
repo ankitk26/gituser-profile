@@ -1,6 +1,6 @@
 import { useUser } from "../context/user-context";
 
-const Avatar = () => {
+export default function Avatar() {
   const { user } = useUser();
   if (!user) return null;
 
@@ -33,6 +33,4 @@ const Avatar = () => {
       </div>
     </div>
   );
-};
-
-export default Avatar;
+}

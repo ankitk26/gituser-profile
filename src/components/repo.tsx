@@ -1,7 +1,11 @@
 import type { GithubRepo } from "../context/user-context";
 import useCopyClipboard from "react-use-clipboard";
 
-const Repo = ({ repo }: { repo: GithubRepo }) => {
+interface Props {
+  repo: GithubRepo;
+}
+
+export default function Repo({ repo }: Props) {
   const [, setCopied] = useCopyClipboard(repo.clone_url);
 
   const copyUrl = () => {
@@ -48,6 +52,4 @@ const Repo = ({ repo }: { repo: GithubRepo }) => {
       </div>
     </div>
   );
-};
-
-export default Repo;
+}

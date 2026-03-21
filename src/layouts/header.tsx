@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+export default function Header() {
   return (
     <nav className="w-full py-3 text-3xl text-white bg-blue-500 md:px-5">
       <Link
@@ -12,6 +12,4 @@ const Header = () => {
       </Link>
     </nav>
   );
-};
-
-export default Header;
+}
