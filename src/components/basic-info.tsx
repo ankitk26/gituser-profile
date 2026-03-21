@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-import { BuildingsIcon, MapPinIcon, EnvelopeSimpleIcon, UserFocusIcon, ListIcon } from "@phosphor-icons/react";
-import { useUser } from "@/context/user-context";
+import {
+  Buildings as BuildingsIcon,
+  MapPin as MapPinIcon,
+  EnvelopeSimple as EnvelopeIcon,
+  UserFocus as UserFocusIcon,
+  List as ListIcon,
+} from "@phosphor-icons/react";
+import type { GithubUser } from "@/lib/api";
 
-export default function BasicInfo() {
-  const { user } = useUser();
-  if (!user) return null;
+interface Props {
+  user: GithubUser;
+  onClear: () => void;
+}
 
+export default function BasicInfo({ user }: Props) {
   return (
     <div className="flex flex-col items-center w-full px-3 mx-auto mt-5 text-lg leading-9 md:items-start align-self-start md:px-0">
       <h1 className="text-2xl text-blue-600">{user.login}</h1>
@@ -30,7 +38,7 @@ export default function BasicInfo() {
 
       {user.blog && (
         <div className="flex items-center gap-3 mt-4">
-          <EnvelopeSimpleIcon size={24} className="text-gray-700" />
+          <EnvelopeIcon size={24} className="text-gray-700" />
           <a
             href={`//${user.blog}`}
             className="font-bold text-blue-600 md:text-sm hover:underline"

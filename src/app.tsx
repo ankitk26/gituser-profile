@@ -1,12 +1,14 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { UserProvider } from "./context/user-context";
-import Header from "./layouts/header";
-import Home from "./pages/home";
-import UserRepos from "./pages/user-repos";
+import Header from "@/layouts/header";
+import Home from "@/pages/home";
+import UserRepos from "@/pages/user-repos";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
-    <UserProvider>
+    <QueryClientProvider client={queryClient}>
       <Router>
         <Header />
         <Routes>
@@ -14,6 +16,6 @@ export default function App() {
           <Route path="/:username/repos/:pageNumber" element={<UserRepos />} />
         </Routes>
       </Router>
-    </UserProvider>
+    </QueryClientProvider>
   );
 }

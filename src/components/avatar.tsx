@@ -1,10 +1,11 @@
-import { useUser } from "@/context/user-context";
-import { UsersIcon } from "@phosphor-icons/react";
+import { Users as UsersIcon } from "@phosphor-icons/react";
+import type { GithubUser } from "@/lib/api";
 
-export default function Avatar() {
-  const { user } = useUser();
-  if (!user) return null;
+interface Props {
+  user: GithubUser;
+}
 
+export default function Avatar({ user }: Props) {
   return (
     <div className="py-5 md:px-10">
       <img

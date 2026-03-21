@@ -1,4 +1,4 @@
-import type { GithubRepo } from "@/context/user-context";
+import type { GithubRepo } from "@/lib/api";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { GitBranchIcon } from "@phosphor-icons/react";
 

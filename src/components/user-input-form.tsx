@@ -1,26 +1,26 @@
 import { useState } from "react";
-import { useUser } from "@/context/user-context";
 
-export default function UserInputForm() {
+interface Props {
+  onSearch: (username: string) => void;
+}
+
+export default function UserInputForm({ onSearch }: Props) {
   const [input, setInput] = useState("");
-  const { fetchUser, setError, clearAll } = useUser();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setInput(e.target.value);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (input) {
-      fetchUser(input);
-    } else {
-      setError("Please enter username");
+    if (input.trim()) {
+      onSearch(input.trim());
     }
     setInput("");
   };
 
   const handleClear = () => {
     setInput("");
-    clearAll();
+    onSearch("");
   };
 
   return (
