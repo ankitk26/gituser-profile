@@ -12,7 +12,7 @@ export default function Header() {
 				>
 					<GithubLogoIcon size={22} weight="duotone" />
 					<span className="text-sm font-medium tracking-tight">
-						GitHub User Finder
+						gituser-profile
 					</span>
 				</Link>
 			</div>
