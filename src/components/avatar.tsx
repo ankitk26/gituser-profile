@@ -7,32 +7,28 @@ interface Props {
 
 export default function Avatar({ user }: Props) {
 	return (
-		<div className="py-5 md:px-10">
+		<div className="flex flex-col items-center gap-4">
 			<img
 				src={user.avatar_url}
-				alt="avatar"
-				className="mx-auto mb-5 h-52 w-52 rounded-full object-contain shadow-lg"
+				alt={user.login}
+				className="size-28 rounded-full ring-1 ring-border"
 			/>
-
-			<h2 className="my-2 text-center text-xl text-gray-900">
-				{user.name}
-			</h2>
-
-			<div className="mx-auto flex w-10/12 flex-col justify-center gap-2 text-center md:w-auto md:flex-row md:gap-8">
-				<div className="flex flex-col items-center gap-1">
-					<strong className="text-blue-700">Following</strong>
-					<div className="flex items-center">
-						<UsersIcon size={24} className="mr-2 text-gray-900" />
-						<span>{user.following}</span>
-					</div>
-				</div>
-
-				<div className="flex flex-col items-center gap-1">
-					<strong className="text-blue-700">Followers</strong>
-					<div className="flex items-center">
-						<UsersIcon size={24} className="mr-2 text-gray-900" />
-						<span>{user.followers}</span>
-					</div>
+			<div className="text-center">
+				{user.name && (
+					<h2 className="text-lg font-semibold tracking-tight">
+						{user.name}
+					</h2>
+				)}
+				<div className="mt-1.5 flex items-center justify-center gap-4 text-xs text-muted-foreground">
+					<span className="flex items-center gap-1">
+						<UsersIcon size={13} weight="fill" />
+						{user.followers} followers
+					</span>
+					<span className="text-border">·</span>
+					<span className="flex items-center gap-1">
+						<UsersIcon size={13} />
+						{user.following} following
+					</span>
 				</div>
 			</div>
 		</div>
