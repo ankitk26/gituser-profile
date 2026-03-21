@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CaretLeft as CaretLeftIcon, CaretRight as CaretRightIcon } from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 interface Props {
   page: number;

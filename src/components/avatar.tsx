@@ -1,4 +1,4 @@
-import { Users as UsersIcon } from "@phosphor-icons/react";
+import { UsersIcon } from "@phosphor-icons/react";
 import type { GithubUser } from "@/lib/api";
 
 interface Props {

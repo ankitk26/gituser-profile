@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import {
-  Buildings as BuildingsIcon,
-  MapPin as MapPinIcon,
-  EnvelopeSimple as EnvelopeIcon,
-  UserFocus as UserFocusIcon,
-  List as ListIcon,
+  BuildingsIcon,
+  MapPinIcon,
+  EnvelopeSimpleIcon,
+  UserFocusIcon,
+  ListIcon,
 } from "@phosphor-icons/react";
 import type { GithubUser } from "@/lib/api";
 
@@ -38,7 +38,7 @@ export default function BasicInfo({ user }: Props) {
 
       {user.blog && (
         <div className="flex items-center gap-3 mt-4">
-          <EnvelopeIcon size={24} className="text-gray-700" />
+          <EnvelopeSimpleIcon size={24} className="text-gray-700" />
           <a
             href={`//${user.blog}`}
             className="font-bold text-blue-600 md:text-sm hover:underline"
