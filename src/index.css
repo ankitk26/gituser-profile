@@ -1,14 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/playfair-display";
-@import "@fontsource-variable/lora";
 @import "@fontsource-variable/space-grotesk";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Source Sans Pro", sans-serif;
 }
 
 :root {
@@ -81,7 +78,6 @@
 }
 
 @theme inline {
-  --font-serif: 'Playfair Display Variable', serif;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
