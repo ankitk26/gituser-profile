@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.8.4
         version: 1.13.6
+      phosphor-react:
+        specifier: ^1.4.1
+        version: 1.4.1(react@19.2.4)
       react:
         specifier: ^19.1.0
         version: 19.2.4
@@ -509,6 +512,12 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  phosphor-react@1.4.1:
+    resolution: {integrity: sha512-gO5j7U0xZrdglTAYDYPACU4xDOFBTJmptrrB/GeR+tHhCZF3nUMyGmV/0hnloKjuTrOmpSFlbfOY78H39rgjUQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -990,6 +999,10 @@ snapshots:
       mime-db: 1.52.0
 
   nanoid@3.3.11: {}
+
+  phosphor-react@1.4.1(react@19.2.4):
+    dependencies:
+      react: 19.2.4
 
   picocolors@1.1.1: {}
 
