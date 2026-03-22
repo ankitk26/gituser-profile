@@ -1,7 +1,7 @@
 import {
 	GitBranchIcon,
 	StarIcon,
-	ForkKnifeIcon,
+	GitForkIcon,
 	CopyIcon,
 	CheckIcon,
 } from "@phosphor-icons/react";
@@ -56,7 +56,7 @@ export default function Repo({ repo }: Props) {
 							{repo.watchers}
 						</Badge>
 						<Badge variant="outline" className="gap-1 text-[10px]">
-							<ForkKnifeIcon weight="duotone" />
+							<GitForkIcon weight="duotone" />
 							{repo.forks}
 						</Badge>
 						<button
